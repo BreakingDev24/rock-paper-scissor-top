@@ -25,10 +25,12 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "paper" && computerSelection === "scissor") ||
         (playerSelection === "scissor" && computerSelection === "rock")
         ) {
+            computerPoint++;
             return `You Lose! ${computerSelection} beats ${playerSelection}`
         } else if (playerSelection === computerSelection) {
             return "it's a tie"
         } else {
+            playerPoint++
             return `You Win! ${playerSelection} beats ${computerSelection}`
         }
         
