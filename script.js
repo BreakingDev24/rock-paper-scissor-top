@@ -6,8 +6,17 @@ let choice = ["rock", "paper", "scissor"];
 
 
 function getPlayerSelection() {
-    const playerChoice = prompt("rock, paper or scissor?").toLowerCase();
-    return playerChoice   
+    let validInput = false;
+    while (validInput == false) {
+        const playerChoice = prompt("rock, paper or scissor?").toLowerCase();
+        if (playerChoice == null){
+            continue
+        }
+        if (choice.includes(playerChoice)) {
+            validInput = true ;
+            return playerChoice
+        }
+    }
 }
 
 
