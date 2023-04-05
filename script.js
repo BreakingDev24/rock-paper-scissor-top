@@ -12,6 +12,10 @@ const roundResult = document.getElementById('round-result');
 const playerWeapon = document.getElementById('player-weapon');
 const computerWeapon = document.getElementById('computer-weapon');
 
+playerSelectionBtn.forEach(button => {
+    button.addEventListener('click', getPlayerSelection)
+})
+
 function getPlayerSelection(e) {
     let target = e.target;
     playerChoice = target.value
