@@ -38,15 +38,19 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "scissor" && computerSelection === "rock")
         ) {
             computerPoint++
-            return `You Lose! ${computerSelection} beats ${playerSelection}`
+            computerPointDisplay.innerText = `Computer: ${computerPoint}`
+            round = `You Lose! ${computerSelection} beats ${playerSelection}`
         } else if (playerSelection === computerSelection) {
-            return "it's a tie"
+            round = "it's a tie"
         } else {
             playerPoint++
-            return `You Win! ${playerSelection} beats ${computerSelection}`
+            playerPointDisplay.innerText = `Player: ${playerPoint}`
+            round = `You Win! ${playerSelection} beats ${computerSelection}`
         }
-        
+        roundResult.innerText = round
     }
+
+
     
     function game() {
         for (let i = 0; i < 5; i++){
