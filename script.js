@@ -17,15 +17,17 @@ playerSelectionBtn.forEach(button => {
 })
 
 function getPlayerSelection(e) {
-    let target = e.target;
+    let target = (e.target);
     playerChoice = target.value
-    playerSelectionContainer.innerText = playerChoice;
+    playerWeapon.innerText = playerChoice;
+    playRound(playerChoice, getComputerChoice())
 }
 
 
 
 function getComputerChoice() {
     let computerChoice = choice[Math.floor(Math.random() * choice.length)];
+    computerWeapon.innerText = computerChoice
     return computerChoice
     
 }
@@ -50,18 +52,15 @@ function playRound(playerSelection, computerSelection) {
         roundResult.innerText = round
     }
 
+    function endGame(){
+        playerSelectionBtn.forEach(button => {
+            button.removeEventListener('click', getPlayerSelection)
+        })
+    }
+
 
     
-    function game() {
-        for (let i = 0; i < 5; i++){
-            const playerSelection = getPlayerSelection();
-            const computerSelection = getComputerChoice();
-            console.log(playRound(playerSelection, computerSelection));
-            console.log(playerPoint);
-            console.log(computerPoint);
-        }
 
-    }
 
 
 
