@@ -1,22 +1,21 @@
 let playerPoint = 0;
 let computerPoint = 0;
+let playerChoice;
 
 let choice = ["rock", "paper", "scissor"];
 
+const playerSelectionContainer = document.getElementById('player-selection-container')
+const playerSelectionBtn = document.querySelectorAll('.player-selection-btn');
+const playerPointDisplay = document.getElementById('player-point-display');
+const computerPointDisplay = document.getElementById('computer-point-display');
+const roundResult = document.getElementById('round-result');
+const playerWeapon = document.getElementById('player-weapon');
+const computerWeapon = document.getElementById('computer-weapon');
 
-
-function getPlayerSelection() {
-    let validInput = false;
-    while (validInput == false) {
-        const playerChoice = prompt("rock, paper or scissor?").toLowerCase();
-        if (playerChoice == null){
-            continue
-        }
-        if (choice.includes(playerChoice)) {
-            validInput = true ;
-            return playerChoice
-        }
-    }
+function getPlayerSelection(e) {
+    let target = e.target;
+    playerChoice = target.value
+    playerSelectionContainer.innerText = playerChoice;
 }
 
 
