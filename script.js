@@ -50,6 +50,13 @@ function playRound(playerSelection, computerSelection) {
             round = `You Win! ${playerSelection} beats ${computerSelection}`
         }
         roundResult.innerText = round
+        checkWinner(playerPoint, computerPoint)
+    }
+
+    function checkWinner(playerPoint, computerPoint){
+        if (playerPoint === 5 || computerPoint === 5){
+            endGame()
+        }
     }
 
     function endGame(){
