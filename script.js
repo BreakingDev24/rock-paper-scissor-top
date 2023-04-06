@@ -6,6 +6,8 @@ let choice = ["rock", "paper", "scissor"];
 
 const playerSelectionContainer = document.getElementById('player-selection-container')
 const playerSelectionBtn = document.querySelectorAll('.player-selection-btn');
+// const playAgainBtn = document.getElementById('play-again-btn')
+const buttonContainer = document.getElementById('button-container')
 const playerPointDisplay = document.getElementById('player-point-display');
 const computerPointDisplay = document.getElementById('computer-point-display');
 const roundResult = document.getElementById('round-result');
@@ -58,11 +60,29 @@ function playRound(playerSelection, computerSelection) {
             endGame()
         }
     }
-
+    
     function endGame(){
         playerSelectionBtn.forEach(button => {
             button.removeEventListener('click', getPlayerSelection)
         })
+        createNewElement('button-container', 'button', 'play-again-btn', 'play-again-btn', 'Play Again');
+        document.getElementById('play-again-btn').addEventListener('click', reloadPage)
+    }
+    
+    
+    function createNewElement(parent, tagHtml, className, idName, content) {
+        const parentElement = document.getElementById(parent);//define parent node
+        const newElement = document.createElement(tagHtml);//create element using tag html
+        
+        newElement.classList.add(className);//add class to element
+        newElement.setAttribute('id', idName);//add id to element
+        newElement.innerText = content; //add content
+        
+        parentElement.appendChild(newElement)//insert element in dom
+    }
+    
+    function reloadPage (){
+        window.location.reload()
     }
 
 
