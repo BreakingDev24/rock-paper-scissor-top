@@ -13,6 +13,7 @@ const computerPointDisplay = document.getElementById('computer-point-display');
 const roundResult = document.getElementById('round-result');
 const playerWeapon = document.getElementById('player-weapon');
 const computerWeapon = document.getElementById('computer-weapon');
+let weaponPlaceholder = document.querySelectorAll('.weapon-placeholder')
 
 playerSelectionBtn.forEach(button => {
     button.addEventListener('click', getPlayerSelection)
@@ -21,15 +22,34 @@ playerSelectionBtn.forEach(button => {
 function getPlayerSelection(e) {
     let target = (e.target);
     playerChoice = target.value
-    playerWeapon.innerText = playerChoice;
+    switch (playerChoice){
+        case 'rock':
+            weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/charmander.png"
+            break;
+        case 'paper': 
+            weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
+            break;
+            
+        case 'scissor':
+            weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/squirtle.png"
+        }
+ 
     playRound(playerChoice, getComputerChoice())
 }
 
 
-
 function getComputerChoice() {
     let computerChoice = choice[Math.floor(Math.random() * choice.length)];
-    computerWeapon.innerText = computerChoice
+    switch (computerChoice){
+        case 'rock':
+            weaponPlaceholder[1].src = "https://img.pokemondb.net/sprites/silver/normal/charmander.png"
+            break;
+        case 'paper': 
+            weaponPlaceholder[1].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
+            break;
+        case 'scissor':
+            weaponPlaceholder[1].src = "https://img.pokemondb.net/sprites/silver/normal/squirtle.png"
+        }
     return computerChoice
     
 }
