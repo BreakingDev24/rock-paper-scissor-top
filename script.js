@@ -19,23 +19,7 @@ playerSelectionBtn.forEach(button => {
     button.addEventListener('click', getPlayerSelection)
 })
 
-function getPlayerSelection(e) {
-    let target = (e.target);
-    playerChoice = target.value
-    switch (playerChoice){
-        case 'rock':
-            weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/charmander.png"
-            break;
-        case 'paper': 
-            weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
-            break;
-            
-        case 'scissor':
-            weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/squirtle.png"
-        }
- 
-    playRound(playerChoice, getComputerChoice())
-}
+
 
 
 function getComputerChoice() {
@@ -78,7 +62,12 @@ function playRound(playerSelection, computerSelection) {
 
     function checkWinner(playerPoint, computerPoint){
         if (playerPoint === 5 || computerPoint === 5){
-            endGame()
+            endGame();
+            if (playerPoint > computerPoint){
+                document.getElementById('game-result-display').textContent = "You Win!"
+            } else {
+                document.getElementById('game-result-display').textContent = "You Lose!"
+            }
         }
     }
     
@@ -86,11 +75,35 @@ function playRound(playerSelection, computerSelection) {
         playerSelectionBtn.forEach(button => {
             button.removeEventListener('click', getPlayerSelection)
         })
-        createNewElement('wrapper', 'button', 'play-again-btn', 'play-again-btn', 'Play Again');
-        document.getElementById('play-again-btn').addEventListener('click', reloadPage)
+        createNewElement('wrapper', 'div', 'game-result-container', 'game-result-container', '');
+        createNewElement('game-result-container', 'p', 'game-result-display', 'game-result-display', '');
+        createNewElement('game-result-container', 'button', 'play-again-btn', 'play-again-btn', 'Play Again');
+        document.getElementById('play-again-btn').addEventListener('click', reloadPage);
     }
     
-    
+        
+    function reloadPage (){
+        window.location.reload()
+    }
+
+    function getPlayerSelection(e) {
+        let target = (e.target);
+        playerChoice = target.value
+        switch (playerChoice){
+            case 'rock':
+                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/charmander.png"
+                break;
+            case 'paper': 
+                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
+                break;
+                
+            case 'scissor':
+                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/squirtle.png"
+            }
+     
+        playRound(playerChoice, getComputerChoice())
+    }
+
     function createNewElement(parent, tagHtml, className, idName, content) {
         const parentElement = document.getElementById(parent);//define parent node
         const newElement = document.createElement(tagHtml);//create element using tag html
@@ -100,10 +113,6 @@ function playRound(playerSelection, computerSelection) {
         newElement.innerText = content; //add content
         
         parentElement.appendChild(newElement)//insert element in dom
-    }
-    
-    function reloadPage (){
-        window.location.reload()
     }
 
 
