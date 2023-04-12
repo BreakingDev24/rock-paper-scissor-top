@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(58, 58, 148);
+    position: relative;
+}
+
+#main-section {
+    background-color: rgb(88, 131, 77);
+    width: 800px;
+    margin: auto;
+    height: 70%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 5px solid black;
+}
+
+#weapon-container{
+    display: flex;
+    gap: 10px;
+}
+
+.weapon-selection {
+    width: 100px;
+}
+
+.weapon-selection img {
+    width: 100%;
+}
+
+.player-selection-btn {
+    width: fit-content;
+}
+.player-selection-btn img {
+    pointer-events: none;
+    width: 100px;
+}
+
+#game-result-container{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    height: fit-content;
+    width: 200px;
+    padding: 20px 10px;
+    background-color: rgb(58, 58, 148);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    border: 1px solid black;
+
+    box-shadow: 12px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 12px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 12px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+#game-result-display {
+    color: white;
+    font-size: 24px;
+}
+
+#play-again-btn {
+    font-size: 18px;
+    padding: 10px 15px;
+    background-color: rgb(88, 131, 77);
+    border: none;
+    cursor: pointer;
+}
+
