@@ -45,10 +45,11 @@ function getComputerChoice() {
             weaponPlaceholder[1].src = "https://img.pokemondb.net/sprites/silver/normal/charmander.png"
             break;
         case 'paper': 
-            weaponPlaceholder[1].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
-            break;
-        case 'scissor':
             weaponPlaceholder[1].src = "https://img.pokemondb.net/sprites/silver/normal/squirtle.png"
+        break;
+        case 'scissor':
+            weaponPlaceholder[1].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
+            break
         }
     return computerChoice
     
@@ -85,7 +86,7 @@ function playRound(playerSelection, computerSelection) {
         playerSelectionBtn.forEach(button => {
             button.removeEventListener('click', getPlayerSelection)
         })
-        createNewElement('button-container', 'button', 'play-again-btn', 'play-again-btn', 'Play Again');
+        createNewElement('wrapper', 'button', 'play-again-btn', 'play-again-btn', 'Play Again');
         document.getElementById('play-again-btn').addEventListener('click', reloadPage)
     }
     
