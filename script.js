@@ -2,7 +2,7 @@ let playerPoint = 0;
 let computerPoint = 0;
 let playerChoice;
 
-let choice = ["rock", "paper", "scissor"];
+let choice = ["grass", "fire", "water"];
 
 const playerSelectionContainer = document.getElementById('player-selection-container')
 const playerSelectionBtn = document.querySelectorAll('.player-selection-btn');
@@ -25,13 +25,13 @@ playerSelectionBtn.forEach(button => {
 function getComputerChoice() {
     let computerChoice = choice[Math.floor(Math.random() * choice.length)];
     switch (computerChoice){
-        case 'rock':
+        case 'fire':
             weaponPlaceholder[1].src = "https://img.pokemondb.net/sprites/silver/normal/charmander.png"
             break;
-        case 'paper': 
+        case 'water': 
             weaponPlaceholder[1].src = "https://img.pokemondb.net/sprites/silver/normal/squirtle.png"
         break;
-        case 'scissor':
+        case 'grass':
             weaponPlaceholder[1].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
             break
         }
@@ -42,9 +42,9 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     
     if (
-        (playerSelection === "rock" && computerSelection === "paper") ||
-        (playerSelection === "paper" && computerSelection === "scissor") ||
-        (playerSelection === "scissor" && computerSelection === "rock")
+        (playerSelection === "fire" && computerSelection === "water") ||
+        (playerSelection === "water" && computerSelection === "grass") ||
+        (playerSelection === "grass" && computerSelection === "fire")
         ) {
             computerPoint++
             computerPointDisplay.innerText = `Computer: ${computerPoint}`
@@ -90,15 +90,15 @@ function playRound(playerSelection, computerSelection) {
         let target = (e.target);
         playerChoice = target.value
         switch (playerChoice){
-            case 'rock':
-                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/charmander.png"
+            case 'grass':
+                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
                 break;
-            case 'paper': 
-                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/squirtle.png"
+            case 'fire': 
+                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/charmander.png"
             break;
             
-            case 'scissor':
-                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
+            case 'water':
+                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/squirtle.png"
                 break
             }
      
