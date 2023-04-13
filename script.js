@@ -94,11 +94,12 @@ function playRound(playerSelection, computerSelection) {
                 weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/charmander.png"
                 break;
             case 'paper': 
-                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
-                break;
-                
-            case 'scissor':
                 weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/squirtle.png"
+            break;
+            
+            case 'scissor':
+                weaponPlaceholder[0].src = "https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png"
+                break
             }
      
         playRound(playerChoice, getComputerChoice())
